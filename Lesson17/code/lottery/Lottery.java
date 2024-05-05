@@ -1,4 +1,4 @@
-package lottery;
+package code.lottery;
 
 import java.util.Arrays;
 import java.util.Random;
