@@ -21,7 +21,6 @@ public class ShapeService {
 
     public String createRandomName(String randomName) {
         randomName = randomName + nameIndex++;
-        System.out.println("name index is: " + nameIndex);
         return randomName;
     }
 
@@ -56,6 +55,7 @@ public class ShapeService {
         System.out.println("A new CIRCLE was created: " +
                 '\n' + "Name: " + circleName +
                 '\n' + "Radius: " + radius);
+        System.out.println();
         return circle;
     }
 
@@ -65,6 +65,7 @@ public class ShapeService {
         System.out.println("A new SQUARE was created: " +
                 '\n' + "Name: " + squareName +
                 '\n' + "Side: " + side);
+        System.out.println();
         return square;
     }
 
@@ -76,26 +77,34 @@ public class ShapeService {
                 '\n' + "Name: " + rectangleName +
                 '\n' + "Side A: " + sideA +
                 '\n' + "Side B: " + sideB);
+        System.out.println();
         return rectangle;
     }
 
     public Triangle createRandomTriangle(String triangleName) {
-        double sideA = (double) (Math.random() * (100)) + 1;
-        double sideB = (double) (Math.random() * (100)) + 1;
-        double sideC = (double) (Math.random() * (100)) + 1;
+        double sideA = 0;
+        double sideB = 0;
+        double sideC = 0;
+        boolean isTriangleValid = (sideA + sideB > sideC && sideB + sideC > sideA && sideA + sideC > sideB);
+        do{
+             sideA = (double) (Math.random() * (100)) + 1;
+             sideB = (double) (Math.random() * (100)) + 1;
+             sideC = (double) (Math.random() * (100)) + 1;
+         }
+         while (isTriangleValid);
+
         Triangle triangle = new Triangle(triangleName, sideA, sideB, sideC);
         System.out.println("A new TRIANGLE was created: " +
                 '\n' + "Name: " + triangleName +
                 '\n' + "Side A: " + sideA +
                 '\n' + "Side B: " + sideB +
                 '\n' + "Side C: " + sideC);
+        System.out.println();
         return triangle;
     }
 
     public void printShapesData(Shape[] shapes) {
-        System.out.println('\n' + "~~~~~~~~~~~~~~~~~~~~~~~");
         for (int i = 0; i < shapes.length; i++) {
-//            System.out.println(shapes[i]);
             shapes[i].printData();
         }
 
