@@ -28,11 +28,12 @@ public class LibraryApp {
             readerService.addNewReader(newReader);
         }
 
-//        это работает только до 5 книг, нужно больше времени, чтобы размножить книги дальше
+        int stepCounter = 0;
         for (int i = 1; i <= 10; i++) {
             for (int j = 1; j <= 5; j++) {
-                    bookRentService.rentBook(readerService.findById(i), bookService.findById(j));
+                    bookRentService.rentBook(readerService.findById(i), bookService.findById(j + stepCounter));
             }
+            stepCounter += 5;
         }
 
 
