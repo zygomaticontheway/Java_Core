@@ -12,5 +12,6 @@ public class DictionaryApp {
         service.addTranslationToExistingWord();
 
         service.printDictionary();
+        service.printWordFromDictionary();
     }
 }
