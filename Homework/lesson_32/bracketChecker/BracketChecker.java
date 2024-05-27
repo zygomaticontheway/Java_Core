@@ -1,4 +1,4 @@
-package lesson_32;
+package lesson_32.bracketChecker;
 
 import java.util.Stack;
 

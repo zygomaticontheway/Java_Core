@@ -11,6 +11,10 @@ public class BrowserHistoryDemo {
 
         browserHistoryQueue.printBrowserHistory();
 
+        browserHistoryQueue.removeLinkFromHistory("www.google.com");
+        browserHistoryQueue.printBrowserHistory();
+
+
 
 
 
