@@ -4,101 +4,11 @@ import java.util.*;
 
 public class TourCollection {
     private int maxSize;
-    private int counter;
     private Queue<String> queries;
 
     public TourCollection(int maxSize) {
         this.maxSize = maxSize;
-        this.queries = new Queue<String>() {
-            @Override
-            public boolean add(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean offer(String s) {
-                return false;
-            }
-
-            @Override
-            public String remove() {
-                return null;
-            }
-
-            @Override
-            public String poll() {
-                return null;
-            }
-
-            @Override
-            public String element() {
-                return null;
-            }
-
-            @Override
-            public String peek() {
-                return null;
-            }
-
-            @Override
-            public int size() {
-                return 0;
-            }
-
-            @Override
-            public boolean isEmpty() {
-                return false;
-            }
-
-            @Override
-            public boolean contains(Object o) {
-                return false;
-            }
-
-            @Override
-            public Iterator<String> iterator() {
-                return null;
-            }
-
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @Override
-            public <T> T[] toArray(T[] a) {
-                return null;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends String> c) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
+        this.queries = new ArrayDeque<>(){
         };
     }
 
@@ -110,9 +20,8 @@ public class TourCollection {
         return queries;
     }
     public boolean addNewQuery(String queryText) {
-        if(counter < maxSize){
+        if(queries.size() < maxSize){
             queries.add(queryText);
-            counter++;
             System.out.println("This query was added: " + queryText);
             return true;
         }
@@ -123,7 +32,6 @@ public class TourCollection {
         System.out.println();
         if (!queries.isEmpty()){
             queries.poll();
-            counter--;
             System.out.println("Query has been processed");
 
         } else {
@@ -131,7 +39,11 @@ public class TourCollection {
         }
     }
     public int getQueueSize(){
-        return counter;
+        return queries.size();
+    }
+    public void printQueries(){
+        System.out.println("Queries are: ");
+        System.out.println(queries);
     }
 
     @Override

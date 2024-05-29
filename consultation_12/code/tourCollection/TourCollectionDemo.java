@@ -8,14 +8,17 @@ public class TourCollectionDemo {
         tourCollection.addNewQuery("Bali 24 nights Jun");
         tourCollection.addNewQuery("Yerevan 7 nights July");
         tourCollection.addNewQuery("Spain 3 nights this weekend");
+        tourCollection.printQueries();
 
         tourCollection.processRequest();
+        tourCollection.printQueries();
 
         tourCollection.addNewQuery("Spain 4 nights this weekend");
 
 
         tourCollection.addNewQuery("Spain 5 nights this weekend");
 
+        tourCollection.printQueries();
 
 
     }
