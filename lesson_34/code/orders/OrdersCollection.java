@@ -14,7 +14,7 @@ public class OrdersCollection {
     }
     public void removeOrder(Integer orderId){
         for (Order order : orders) {
-            if (order.getOrderID() == orderId) {
+            if (order.getOrderID().equals(orderId)) {
                 orders.remove(order);
                 System.out.println('\n' + "Order #" + orderId + " was deleted");
                 return;
