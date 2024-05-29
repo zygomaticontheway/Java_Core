@@ -12,10 +12,19 @@ public class OrdersDemo {
         ordersCollection.addNewOrder(new Order(6, "Leonid", 50));
         ordersCollection.addNewOrder(new Order(7, "Alex", 170));
 
+        ordersCollection.printOrders();
 
-        System.out.println("==========================");
-        ordersCollection.ordersByAmount();
+        ordersCollection.removeOrder(2);
+        ordersCollection.printOrders();
 
+
+        ordersCollection.printOrders(ordersCollection.ordersByAmount());
+
+        ordersCollection.printOrders(ordersCollection.ordersByCustomerName());
+
+        ordersCollection.searchByCustomerName("Alex");
+
+        System.out.println(ordersCollection.searchByOrderID(3));
 
     }
 }

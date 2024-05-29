@@ -14,6 +14,18 @@ public class Order implements Comparable<Order>{
         this.amount = amount;
     }
 
+    public Integer getOrderID() {
+        return orderID;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -27,19 +39,6 @@ public class Order implements Comparable<Order>{
         return Objects.hash(orderID, customerName, amount);
     }
 
-    public Integer getOrderID() {
-        return orderID;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public Integer getAmount() {
-        return amount;
-    }
-
-
     @Override
     public String toString() {
         return "Order{" +
@@ -51,13 +50,13 @@ public class Order implements Comparable<Order>{
 
     @Override
     public int compareTo(Order order) {
-        int comparebyOrderID = orderID.compareTo(order.getOrderID());
-        if (comparebyOrderID != 0) {
-            return comparebyOrderID;
+        int compareByOrderID = orderID.compareTo(order.getOrderID());
+        if (compareByOrderID != 0) {
+            return compareByOrderID;
         }
-        int comparebyCustomerName = customerName.compareTo(order.getCustomerName());
-        if (comparebyCustomerName != 0){
-            return comparebyCustomerName;
+        int compareByCustomerName = customerName.compareTo(order.getCustomerName());
+        if (compareByCustomerName != 0){
+            return compareByCustomerName;
         }
             return amount.compareTo(order.getAmount());
     }
