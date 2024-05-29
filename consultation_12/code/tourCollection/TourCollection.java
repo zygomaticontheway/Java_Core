@@ -19,14 +19,13 @@ public class TourCollection {
     public Queue<String> getQueries() {
         return queries;
     }
-    public boolean addNewQuery(String queryText) {
+    public void addNewQuery(String queryText) {
         if(queries.size() < maxSize){
             queries.add(queryText);
             System.out.println("This query was added: " + queryText);
-            return true;
+            return;
         }
         System.out.println("Sorry, the queue of queries is full. Try later.");
-        return false;
     }
     public void processRequest(){
         System.out.println();
