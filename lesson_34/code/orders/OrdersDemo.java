@@ -13,7 +13,7 @@ public class OrdersDemo {
         ordersCollection.addNewOrder(new Order(7, "Alex", 170));
 
 
-        System.out.println("===========================");
+        System.out.println("==========================");
         ordersCollection.ordersByAmount();
 
 
