@@ -24,7 +24,7 @@ public class OrdersCollection {
     }
     public Order searchByOrderID (Integer orderId){
         for (Order order : orders){
-            if (order.getOrderID() == orderId){
+            if (order.getOrderID().equals(orderId)){
                 return order;
             }
         }
