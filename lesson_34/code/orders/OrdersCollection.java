@@ -35,7 +35,6 @@ public class OrdersCollection {
         List<Order> fidedOrdersByCustomerName = new ArrayList<>();
 
         for (Order order : orders){
-            System.out.println("~~~~~ checking order.getOrderID()~~~~~~~" + order.getOrderID());
             if (order.getCustomerName().equals(customerName)){
                 fidedOrdersByCustomerName.add(order);
             }
