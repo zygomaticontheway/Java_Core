@@ -1,0 +1,39 @@
+
+TaskServiceAdd
+
+
+ClientResponse  add(ClientRequest request)
+
+ClientRequest: name, description
+
+ClientResponse:
+- responseCode
+// 200 - Ok
+// 400 - error
+//...
+
+- Task (новый task в котором будет id)
+
+- List<String> message
+// запись данных произведена успешно
+// данные не соответствуют формату
+
+
+TaskFindService
+
+- responseCode
+// 200 - Ok
+// 400 - error
+//...
+
+- ClientResponseFind findAll()
+
+T findParam;
+ - List<Task>
+ - Task
+ - Optional<Task>
+
+List<String> message
+// таких данных не найдено
+
+

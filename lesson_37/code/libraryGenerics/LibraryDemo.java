@@ -8,7 +8,7 @@ public class LibraryDemo {
         libraryString.addBook(new BookGenerics<>("Три товарища", "роман"));
         libraryString.addBook(new BookGenerics<>("Три поросенка", "сказка"));
 
-        System.out.println(libraryString.getBooksByGenre("сказка"));
+//        System.out.println(libraryString.getBooksByGenre("сказка"));
 
         //================================================
 
