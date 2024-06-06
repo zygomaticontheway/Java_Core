@@ -2,9 +2,7 @@ package lesson_39;
 
 import Lesson18hw.company.UserInput;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 //1. Напишите функциональный интерфейс для преобразования строки в верхний регистр.
 //3. Напишите функциональный интерфейс для проверки, является ли строка палиндромом.
@@ -13,13 +11,13 @@ public class StringTasks {
         UserInput ui = new UserInput();
         String text = ui.inputText("Write something to play with");
 
-        IStringOperations refUppercase = (String newInput) -> {
+        IStringOperations refUppercase = ( newInput) -> {
             String uppercasedString = newInput.toUpperCase();
             return uppercasedString;
         };
         System.out.println(toUppercase(refUppercase, text));
 
-        IIsPalindrom refPalindrom = (String newInput) -> {
+        IIsPalindrom refPalindrom = ( newInput) -> {
 
             String textNoSpaces = text.replace(" ", "");
             char[] textToCharArray = textNoSpaces.toCharArray();
@@ -29,12 +27,9 @@ public class StringTasks {
                 reverseTextAsChar[i] = textToCharArray[textToCharArray.length -i -1];
             }
 
-            if (Arrays.toString(textToCharArray).equalsIgnoreCase(Arrays.toString(reverseTextAsChar))){
-                return true;
-            }
-            return false;
+            return Arrays.toString(textToCharArray).equalsIgnoreCase(Arrays.toString(reverseTextAsChar));
         };
-        System.out.println(text + " is palindrom: " + isPalindrom(refPalindrom, text));
+        System.out.println(text + " is palindrome: " + isPalindrom(refPalindrom, text));
 
     }
     public static String toUppercase (IStringOperations ref, String string){
