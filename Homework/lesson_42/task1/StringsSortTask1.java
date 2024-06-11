@@ -20,6 +20,7 @@ public class StringsSortTask1 {
         List<String> filteredStrings = strings.stream()
                 .map(string -> string.toLowerCase())
                 .filter(string -> string.startsWith("a"))
+                .sorted()
                 .collect(Collectors.toList());
         System.out.println(filteredStrings);
 
