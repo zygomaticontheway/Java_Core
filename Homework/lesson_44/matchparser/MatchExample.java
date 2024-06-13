@@ -14,6 +14,8 @@ public class MatchExample {
 
         Service service = new Service();
 
+        service.parseMatches();
+
 
         System.out.println("a) выбрать все матчи которые были в первой половине месяца");
         System.out.println(service.findMatchesLessDate());

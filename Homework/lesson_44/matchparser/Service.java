@@ -3,7 +3,6 @@ package lesson_44.matchparser;
 import Lesson18hw.company.UserInput;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -17,7 +16,7 @@ public class Service {
     UserInput ui = new UserInput();
 
     public List<Match> parseMatches() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("lesson_44/resources/matches.txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("Homework/lesson_44/matchparser/matches.txt"));
 
         while ((line = bufferedReader.readLine()) != null) {
             matches.add(createRecord(line));
@@ -25,14 +24,7 @@ public class Service {
         bufferedReader.close();
         return matches;
     }
-//0.year: 2022,
-//1.month: 1,
-//2.day: 8,
-//3.team1: TSG 1899 Hoffenheim,
-//4.result: 3:01,
-//5.team2: FC Augsburg,
-//6.watchers: 500,
-//7.stadium: NULL
+
     private Match createRecord(String line) {
         String[] data = line.split(",");
 
