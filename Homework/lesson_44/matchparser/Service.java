@@ -120,8 +120,8 @@ public class Service {
         for (String day : amountOfMatchesPerDay.keySet()){
             if(amountOfMatchesPerDay.get(day) > amountChecker){
                 mostPopularDay = day;
+                amountChecker = amountOfMatchesPerDay.get(day);
             }
-            amountChecker = amountOfMatchesPerDay.get(day);
         }
 
         return mostPopularDay;
