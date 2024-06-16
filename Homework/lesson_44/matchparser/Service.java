@@ -53,9 +53,8 @@ public class Service {
 
 //    a) выбрать все матчи которые были в первой половине месяца
     public List<Match> findMatchesLessDate (){
-        int dayNumber = ui.inputInt("Введите число месяца, до которого выбрать матчи:");
         return matches.stream()
-                .filter(match -> Integer.parseInt(match.getDay()) < dayNumber)
+                .filter(match -> Integer.parseInt(match.getDay()) < 15)
                 .collect(Collectors.toList());
     }
 
@@ -68,8 +67,7 @@ public class Service {
 //    c) выбрать топ 10 самых посещаемых матчей
     public List<Match> top10MatchesByWatchers(){
         return matches.stream()
-                .sorted(Comparator.comparingInt(Match::getWatchers))
-                .sorted(Collections.reverseOrder())
+                .sorted((match1, match2) -> Integer.compare(match2.getWatchers(), match1.getWatchers()))
                 .limit(10)
                 .collect(Collectors.toList());
 
@@ -85,7 +83,7 @@ public class Service {
 //    e) посчитать сколько матчей содержат упоминания о стадионе
     public long matchesWithStaduimName(){
         return matches.stream()
-                .filter(match -> !match.getStadium().isBlank())
+                .filter(match -> !match.getStadium().equals("NULL"))
                 .count();
     }
 //    f) посчитать сколько матчей сыграла каждая команда в качестве гостя (в формате map)
@@ -102,6 +100,32 @@ public class Service {
         return amountOfGuestMatchesOfTeams;
     }
 //    g) выделить наиболее популярный день проведения матча
+    public String mostPopularDay (){
+        Map<String, List<Match>> mostPopularDaysMap = matches.stream()
+                .collect(Collectors.groupingBy(Match::getDay));
+
+        Map<String, Integer> amountOfMatchesPerDay = new HashMap<>();
+
+        for (String day : mostPopularDaysMap.keySet()){
+            amountOfMatchesPerDay.put(day, mostPopularDaysMap.get(day).size());
+        }
+
+        Integer amountChecker = 0;
+        String mostPopularDay = null;
+
+        for (String day : amountOfMatchesPerDay.keySet()){
+            System.out.println("Day " + day + " : " + amountOfMatchesPerDay.get(day) + " times");
+        }
+
+        for (String day : amountOfMatchesPerDay.keySet()){
+            if(amountOfMatchesPerDay.get(day) > amountChecker){
+                mostPopularDay = day;
+            }
+            amountChecker = amountOfMatchesPerDay.get(day);
+        }
+
+        return mostPopularDay;
+    }
 
 
 }
